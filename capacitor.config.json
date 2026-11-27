@@ -1,0 +1,7 @@
+{
+  "appId": "com.shaafi.soundwave",
+  "appName": "SoundWave",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false }
+}

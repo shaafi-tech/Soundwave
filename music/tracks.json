@@ -1,1 +1,17 @@
-Enter file contents here
+[
+  {
+    "id": "site-soundwave-ambient",
+    "title": "Midnight Glass (Ambient Demo)",
+    "artist": "SoundWave Studio",
+    "album": "Liquid Glass Sessions",
+    "genre": "Ambient",
+    "duration": 12,
+    "src": "music/soundwave-ambient.wav",
+    "lyrics": [
+      "[00:00.50] Welcome to SoundWave Pro",
+      "[00:03.50] Lossless Liquid Glass Experience",
+      "[00:06.50] 10-Band EQ • 8D Audio • Room Reverb",
+      "[00:09.50] Import or stream your favorite music"
+    ]
+  }
+]

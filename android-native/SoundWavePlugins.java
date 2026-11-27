@@ -60,6 +60,10 @@ public class SoundWavePlugins {
         @PluginMethod
         public void scanAudio(PluginCall call) {
             Context ctx = getContext();
+            if (ctx == null) {
+                call.reject("Context unavailable");
+                return;
+            }
             ContentResolver resolver = ctx.getContentResolver();
             Uri collection = Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q
                 ? MediaStore.Audio.Media.getContentUri(MediaStore.VOLUME_EXTERNAL)
@@ -149,7 +153,9 @@ public class SoundWavePlugins {
 
         @Override
         public void load() {
-            audioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
+            Context ctx = getContext();
+            if (ctx == null) return;
+            audioManager = (AudioManager) ctx.getSystemService(Context.AUDIO_SERVICE);
             noisyReceiver = new BroadcastReceiver() {
                 @Override
                 public void onReceive(Context context, Intent intent) {
@@ -160,9 +166,9 @@ public class SoundWavePlugins {
             };
             IntentFilter filter = new IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                getContext().registerReceiver(noisyReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
+                ctx.registerReceiver(noisyReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
             } else {
-                getContext().registerReceiver(noisyReceiver, filter);
+                ctx.registerReceiver(noisyReceiver, filter);
             }
         }
 

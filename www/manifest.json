@@ -1,0 +1,10 @@
+{
+  "name": "SoundWave Pro",
+  "short_name": "SoundWave",
+  "description": "Premium Liquid Glass lossless music player with 10-band EQ, live synced lyrics & offline library.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#fa233b",
+  "orientation": "portrait"
+}
